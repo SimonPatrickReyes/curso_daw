@@ -1,0 +1,1 @@
+//objeto que no reciba parametro y devuelva un color aleatorio
