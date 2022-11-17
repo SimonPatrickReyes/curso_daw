@@ -1,6 +1,4 @@
-//Planteamiento
-
-//Imprimimos 
+//Borramos todo el carrito
 
 //*** Variables ***
 const carrito = document.querySelector('#carrito')
@@ -16,12 +14,16 @@ let articulosCarrito = []
 
 //*** Listeners ***
 
-//*** Funcion que carga todos los listeners ***
 cargarEventListeners()
 function cargarEventListeners() {
-    //Cuando haces click, añade un curso al carrito
-
     listaCursos.addEventListener('click', añadirCurso)
+    carrito.addEventListener('click',eliminarCurso)
+    //Listener que vacia el carrito entero
+    vaciarBtn.addEventListener('click', () => {
+        articulosCarrito=[]//Vaciamos el array
+        LimpiarHTML()//Limpiamos el carrito
+    })
+
 
 }
 
@@ -37,8 +39,25 @@ function añadirCurso(e) {
     }
 }
 
+//Funcion que elimina curso del carrito
+function eliminarCurso(e){
+    if (e.target.classList.contains('borrar-curso')) {
+        const cursoID=e.target.getAttribute('data-id')
+
+        //Eliminamos el curso seleccionado del array
+        articulosCarrito=articulosCarrito.filter(curso => curso.id!==cursoID)// -> Condición que te devuelve TODOS menos ese en concreto
+        
+        }
+        //Actualizamos el carrito
+        carritoHTML(articulosCarrito)
+    }
+
+
+
 function leerDatosCurso(curso) {
     console.log(curso)
+
+
 
     const infoCurso = {
         imagen: curso.querySelector('img').src,
@@ -46,9 +65,29 @@ function leerDatosCurso(curso) {
         precio: curso.querySelector('.precio span').textContent,
         id: curso.querySelector('a').getAttribute('data-id'),
         cantidad: 1,
+    }
+
+    // Revisamos si el curso existe en el carrito (array)
+
+    const existe = articulosCarrito.some(() => curso.id === infoCurso.id)
+    //console.log(existe)
+    if (existe) {
+        //Buscamos el curso en el array y le sumamos la cantidad
+        const cursos = articulosCarrito.map((curso) => {
+            if (curso.id === infoCurso.id) {
+                curso.cantidad++
+                return curso
+
+            } else {
+                return curso
+            }
+        })
+        articulosCarrito=[...cursos]
+    } else{
+        articulosCarrito = [...articulosCarrito, infoCurso]
+
 
     }
-    articulosCarrito = [...articulosCarrito, infoCurso]
     carritoHTML()
 }
 
@@ -61,7 +100,7 @@ function carritoHTML() {
     articulosCarrito.forEach((curso) => {
         const row = document.createElement('tr')
         console.log(curso.titulo)
-        const{titulo,imagen,precio,cantidad,id}=curso
+        const { titulo, imagen, precio, cantidad, id } = curso
         row.innerHTML = `
             <td><img src="${curso.imagen}" width="100"></td>
             <td>${titulo}</td>        
