@@ -17,11 +17,18 @@ let articulosCarrito = []
 cargarEventListeners()
 function cargarEventListeners() {
     listaCursos.addEventListener('click', añadirCurso)
-    carrito.addEventListener('click',eliminarCurso)
+    carrito.addEventListener('click', eliminarCurso)
+
+
     //Listener que vacia el carrito entero
     vaciarBtn.addEventListener('click', () => {
-        articulosCarrito=[]//Vaciamos el array
+        articulosCarrito = []//Vaciamos el array
         LimpiarHTML()//Limpiamos el carrito
+    })
+
+    document.addEventListener('DOMContentLoaded', () => {
+        articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || []
+        carritoHTML()
     })
 
 
@@ -40,17 +47,17 @@ function añadirCurso(e) {
 }
 
 //Funcion que elimina curso del carrito
-function eliminarCurso(e){
+function eliminarCurso(e) {
     if (e.target.classList.contains('borrar-curso')) {
-        const cursoID=e.target.getAttribute('data-id')
+        const cursoID = e.target.getAttribute('data-id')
 
         //Eliminamos el curso seleccionado del array
-        articulosCarrito=articulosCarrito.filter(curso => curso.id!==cursoID)// -> Condición que te devuelve TODOS menos ese en concreto
-        
-        }
-        //Actualizamos el carrito
-        carritoHTML(articulosCarrito)
+        articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoID)// -> Condición que te devuelve TODOS menos ese en concreto
+
     }
+    //Actualizamos el carrito
+    carritoHTML(articulosCarrito)
+}
 
 
 
@@ -82,8 +89,8 @@ function leerDatosCurso(curso) {
                 return curso
             }
         })
-        articulosCarrito=[...cursos]
-    } else{
+        articulosCarrito = [...cursos]
+    } else {
         articulosCarrito = [...articulosCarrito, infoCurso]
 
 
@@ -110,7 +117,13 @@ function carritoHTML() {
         `
         contenedorCarrito.appendChild(row)
     })
+    sincronizarStorage()
 }
+
+function sincronizarStorage() {
+    localStorage.setItem('carrito', JSON.stringify(articulosCarrito))
+}
+
 
 function LimpiarHTML() {
     //contenedorCarrito.innerHTML="";  --> Menos código pero más lento
