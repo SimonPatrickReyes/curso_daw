@@ -22,6 +22,19 @@ const handleSubmit = e => {
     }
     console.log("Enviado al servidor");
 }
+ 
+
+
+const handleChange = e => {
+        setTodo({...todo,
+            [e.target.name]:[e.target.value]})
+
+    }
+
+
+
+
+
 
     return (
     <div className='container'>
@@ -36,6 +49,7 @@ const handleSubmit = e => {
         type="text"
         className='form-control mb-2'
         placeholder='Introduce el nombre de la tarea'
+        onChange={e=>handleChange(e)}
         />
 
         <input
@@ -43,13 +57,23 @@ const handleSubmit = e => {
         type="text"
         className='form-control mb-2'
         placeholder='Introduce el nombre de la tarea'
+        onChange={e=> handleChange(e)}
         />
-        <select 
+    
+        <select>
         name="todoEstado"  
-        className="form-controlmb-2">     
+        className="form-controlmb-2"   
         <option value="pendiente">Pendiente</option>
         <option value="pendiente">Completada</option>
+        onChange={e=> handleChange(e)}
         </select>
+
+        <div className='form-check mb-2'>
+            <input className='form-check-input' type="checkbox" value="" name="todoCheck" checked={todo.todoEstado} onChange={e=>handleChange(e)}></input>
+            <label className='form-check-lable' htmlFor='flexCheckDefault'>Prioridad</label>
+        </div>
+
+
         <button
         className='btn btn-primary'
         type='submit'
