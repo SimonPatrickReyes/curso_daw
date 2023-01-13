@@ -10,6 +10,6 @@ const LayoutPublic = () => {
             </main>
             <footer className="container">Footer</footer>
         </div>
-    );
-};
+    )
+}
 export default LayoutPublic;
