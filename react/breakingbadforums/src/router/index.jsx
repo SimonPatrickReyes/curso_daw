@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
-import About from "../pages/About";
-import Blog from "../pages/Blog";
+import Threads from "../pages/Threads";
+import Episodes from "../pages/Episodes";
 import Characters from "../pages/Characters";
 import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
 import LayoutPublic from "../layout/LayoutPublic";
-import LayoutPrivate from "../layout/LayoutPrivate";
+//import LayoutPrivate from "../layout/LayoutPrivate";
 
 
 export const router = createBrowserRouter([
@@ -21,13 +22,13 @@ export const router = createBrowserRouter([
                 element: <Home />,
             },
     {
-        path: "/about",
-        element: <About />,
+        path: "/threads",
+        element: <Threads />,
         
     },
     {
-        path: "/blog",
-        element: <Blog />,
+        path: "/episodes",
+        element: <Episodes />,
         
     },
     {
@@ -42,7 +43,8 @@ export const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <LayoutPrivate />,
+       // element: <LayoutPrivate />,
+       element: <LayoutPublic />,
         errorElement: <NotFound />,
         children: [
             {

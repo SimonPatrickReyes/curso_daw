@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+/*import React, { useEffect } from 'react'
 import {useNavigate,Outlet} from 'react-router-dom'
 
 const navigate = useNavigate()
@@ -17,3 +17,4 @@ return(
     )
 }
 export default LayoutPrivate
+*/
