@@ -1,5 +1,5 @@
 //ENRUTAMIENTOOO
-import React from "react";
+import React, {useEffect} from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
@@ -15,34 +15,34 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { response } from "express";
+import Characters from "./pages/Characters";
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [characters, setCharacters] = useState([]);
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Breaking Bad Forums</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+  const initialUrl="https://www.breakingbadapi.com/api/characters"
+
+  const fecthCharacters = (url) =>{
+    fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
+  };
+  useEffect(()=>{
+    fecthCharacters(initialUrl);
+  }, []);
+
+  return(
+    <div>
+     <Navbar></Navbar>
+     <div className="container">
+      <Characters characters={characters} />
+     </div>
+     </div>
   )
+
 }
 
 export default App
