@@ -28,20 +28,20 @@ const Navbar = () => {
             <ul>
                 <li className="nav-pc__li">
                     <NavLink to="/" className="btn btn-outline-primary">
-                        Home
+                        <p className="nav-pc__p">Home</p>
                     </NavLink>
                 </li>
                 <li className="nav-pc__li">
                     <NavLink to="/threads" className="btn btn-outline-primary">
-                        Threads
+                        <p className="nav-pc__p">Threads</p>
                     </NavLink></li>
                 <li className="nav-pc__li">
                     <NavLink to="/characters" className="btn btn-outline-primary">
-                        Characters
+                        <p className="nav-pc__p">Characters</p>
                     </NavLink></li>
                 <li className="nav-pc__li">
                     <NavLink to="/episodes" className="btn btn-outline-primary">
-                        Episodes
+                        <p className="nav-pc__p">Episodes</p>
                     </NavLink></li>
 
 

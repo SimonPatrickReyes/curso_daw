@@ -1,8 +1,8 @@
-import axios from 'axios'
 
-const todosPersonajes = async(state)=>{
-    const peticion =  axios.get('https://www.breakingbadapi.com/api/characters')
-    state(peticion.data.results)
+const todosPersonajes = ()=>{
+    fetch('https://thronesapi.com/api/v2/Characters')
+    .then((res) => res.json())
+    .then((data) => console.log(data))
 }
 
 export{

@@ -179,6 +179,12 @@ header .nav-pc input {
   width: 80%;
 }
 
+header .nav-pc__p {
+  height: 10px;
+  width: 100%;
+  font-family: Archivo;
+}
+
 footer {
   height: 70px;
   width: 100%;
@@ -644,6 +650,7 @@ body {
 .characters {
   flex-direction: column;
   display: flex;
+  
 }
 
 .characters .char__images {
@@ -651,8 +658,8 @@ body {
   justify-content: center;
   gap: 10px 13px;
   margin-top: 30px;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 2%;
+  padding-right: 2%;
   display: flex;
 }
 
@@ -681,7 +688,8 @@ body {
 }
 
 .characters .char__images img {
-  height: 19.375rem;
+  height: 18rem;
+  width: 18rem;
 }
 
 .characters .char__images img:hover {
@@ -693,8 +701,8 @@ body {
 }
 
 .characters .char__names {
-  height: 19.375rem;
-  width: 19.3125rem;
+  height: 18rem;
+  width: 18rem;
   color: #fff;
   opacity: 0;
   inset: 0;

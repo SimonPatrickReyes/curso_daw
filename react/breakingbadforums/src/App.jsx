@@ -1,6 +1,7 @@
 //ENRUTAMIENTOOO
 import React, {useEffect} from "react";
 import ReactDOM from "react-dom/client";
+import "https://fonts.google.com/specimen/Archivo";
 import "./index.css";
 
 import { router } from "./router";
