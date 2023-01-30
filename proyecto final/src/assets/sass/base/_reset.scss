@@ -1,0 +1,19 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+*, *::before, *::after {
+	box-sizing: border-box;
+  }
+
+input {
+	margin: 0;
+	padding: 4;
+	border: 0;
+	font-family: Archivo;
+	font-weight: 500;
+	font-style: italic;
+	vertical-align: baseline;
+}
+
+
