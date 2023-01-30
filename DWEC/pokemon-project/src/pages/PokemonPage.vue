@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>¿Quien es este pokemon?</h1>
-    <PokemonPictures :pokemonId='4'/>
+    <PokemonPictures :pokemonId='{Math.random() * (max - min) + min}'/>
     <PokemonOptions />
   </div>
 </template>
@@ -15,5 +15,7 @@ console.log(getPokemonOptions)
 
 //const pokemons=[pok1,pok2,pok3,pok4]
 
-export default {components:{PokemonOptions,PokemonPictures}}
+export default {
+  components:{PokemonOptions,PokemonPictures}
+  }
 </script>
