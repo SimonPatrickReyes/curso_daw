@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>¿Quien es este pokemon?</h1>
-    <PokemonPictures :pokemonId="310"/>
+    <PokemonPictures :pokemonId="pokemon.id"/>
     <PokemonOptions />
   </div>
 </template>
@@ -19,11 +19,16 @@ export default {
   components:{PokemonOptions,PokemonPictures},
   data(){
     return{
-      pokemon:null,
+      pokemon:{},
+      pokemonsArray:[],
+
     }
   },
   methods:{
-    mixedPokemons(){
+    async mixedPokemons(){
+      this.pokemonsArray= await getPokemonOptions()
+      const randomPokemon = Math.floor(Math.random()*4)
+      this.pokemon = this.pokemonsArray[randomPokemon]
 
     },
   },
