@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>¿Quien es este pokemon?</h1>
-    <PokemonPictures :pokemonId="pokemon.id"/>
-    <PokemonOptions />
+    <PokemonPictures :pokemonId="pokemon.id" :showPokemon="showPokemon"/>
+    <PokemonOptions :pokemons="pokemonsArray" @selection="checkPokemon"/>
   </div>
 </template>
 
@@ -21,6 +21,7 @@ export default {
     return{
       pokemon:{},
       pokemonsArray:[],
+      showPokemon:false,
 
     }
   },
@@ -29,6 +30,10 @@ export default {
       this.pokemonsArray= await getPokemonOptions()
       const randomPokemon = Math.floor(Math.random()*4)
       this.pokemon = this.pokemonsArray[randomPokemon]
+
+    },
+    checkPokemon(pokemonId){
+      this.showPokemon=true
 
     },
   },
