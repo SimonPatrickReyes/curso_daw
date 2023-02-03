@@ -4,4 +4,8 @@ const pokemonAPI= axios.create({
     baseURL: 'https://pokeapi.co/api/v2/pokemon'
 })
 
-export default pokemonAPI
+const typeAPI= axios.create({
+    baseURL: 'https://pokeapi.co/api/v2/type'
+})
+
+export default {pokemonAPI,typeAPI}
