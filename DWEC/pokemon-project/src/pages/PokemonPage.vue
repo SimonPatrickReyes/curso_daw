@@ -1,65 +1,43 @@
 <template>
-  <nav>
-    <button @click="guestPokemon">Adivinar Pokemon</button>
-    <button @click="guestGeneration">Adivinar Generación</button>
-    <button @click="guestType">Adivinar Tipo</button>
-  </nav>
   <h1 v-if="!pokemon">Cargando...</h1>
   <div v-else>
     <h1>¿Quien es este pokemon?</h1>
+    <p>Numero de aciertos seguidos: {{wins}}</p>
+    <p>Numero de fallos seguidos: {{fails}}</p>
     <PokemonPictures :pokemonId="pokemon.id" :showPokemon="showPokemon"/>
     <PokemonOptions :pokemons="pokemonsArray" @selection="checkPokemon"/>
   </div>
-  <template v-if="showPokemon">
+  <template v-if="endGame">
     <h2 >{{ message }}</h2>
     <button @click="newGame">Jugar de nuevo</button>
   </template>
+  <button @click="clue" class="clue_button">Pista</button>
+  <p>Si activas la pista, pierdes tu racha de aciertos</p>
 </template>
 
 <script>
 import PokemonOptions from '@/components/PokemonOptions.vue';
 import PokemonPictures from '@/components/PokemonPictures.vue';
 import getPokemonOptions from '@/helpers/getPokemonOptions';
-import getPokemonType from '@/helpers/getPokemonType'
 
 console.log(getPokemonOptions)
 
-//const pokemons=[pok1,pok2,pok3,pok4]
-
 export default {
-  components:{PokemonOptions,PokemonPictures},
+  components:{PokemonOptions,PokemonPictures,},
   data(){
     return{
-      modePokemon:true,
-      modeType:false,
-      modeGeneration:false,
       pokemon: null,
       pokemonsArray: [],
       showPokemon: false,
       showAnswer:false,
       message: '',
+      endGame:false,
+      fails:0,
+      wins:0
+      
     }
   },
   methods:{
-    guestPokemon(){
-      this.modePokemon=true
-      this.modeType=false
-      this.modeGeneration=false
-    },
-    guestGeneration(){
-      this.modePokemon=false
-      this.modeType=false
-      this.modeGeneration=true
-
-
-    },
-    guestType(){
-      this.modePokemon=false
-      this.modeType=true
-      this.modeGeneration=false
-    },
-
-
     async mixedPokemons(){
       this.pokemonsArray = await getPokemonOptions()
       const randomPokemon = Math.floor(Math.random() * 4)
@@ -68,19 +46,32 @@ export default {
     checkPokemon(pokemonId) {
       this.showPokemon = true
       if (pokemonId === this.pokemon.id) {
-        this.message = "Has acertado!"
+        this.message = "¡Has acertado!"
+        this.fails=0
+        this.wins++
       } else {
-        this.message = `Respuesta incorrecta, ${this.pokemon.name}`
+        this.message = `Respuesta incorrecta, era ${this.pokemon.name}`
+        this.fails++
+        this.wins=0
       }
+      this.endGame=true
     },
     newGame(){
+      this.endGame=false
       this.pokemon= null
       this.pokemonsArray= []
-      this.showPokemon= false
+      this.showPokemon=false
       this.showAnswer=false
       this.message= ''
       this.mixedPokemons()
-    }
+      
+    },
+    clue(){
+      this.showPokemon = true
+      this.wins=0
+      this.fails=0
+    },
+    
 
   },
   mounted(){
@@ -88,3 +79,9 @@ export default {
   },
   }
 </script>
+
+<style>
+.clue_button{
+  width:200px;
+}
+</style>
