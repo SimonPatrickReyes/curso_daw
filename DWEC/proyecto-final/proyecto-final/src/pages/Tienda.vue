@@ -1,10 +1,11 @@
 <template>
-    Tienda
+  <div class="tienda">
+  <h1>Tienda</h1>
    <div v-if="games"
       v-for="game in games"
       :key="game.id">
       <a href='#'><h3>{{ game.nombre }}</h3></a> 
-    </div>
+    </div></div>
 </template>
 <script>
 export default {

@@ -1,5 +1,7 @@
 <template>
-   <div><h1>Comunidad</h1></div>
+   <div class="comunidad">
+      <h1>Comunidad</h1>
+      </div>
 </template>
 <script>
 export default{

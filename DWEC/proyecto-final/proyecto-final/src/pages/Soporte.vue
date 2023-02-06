@@ -1,5 +1,7 @@
 <template>
-    <div><h1>Soporte</h1></div>
+    <div class="soporte">
+        <h1>Soporte</h1>
+    </div>
  </template>
  <script>
 export default{

@@ -6,14 +6,7 @@ import Soporte from './pages/Soporte.vue'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 
-/*
-const routes = {
-  '/': Tienda,
-  '/novedades': Novedades,
-  '/comunidad': Comunidad,
-  '/soporte': Soporte,
-}
-*/
+
 export default {
   name: "App",
   components: {
@@ -22,23 +15,10 @@ export default {
   },
   data() {
     return {
-      //currentPath: window.location.hash,
       games: [],
     }
   },
-  computed: {
-    /*currentView() {
-      return routes[this.currentPath.slice(1) || '/'] || NotFound
-    }
-    */
-  },
-  /*
-  mounted() {
-    window.addEventListener('hashchange', () => {
-      this.currentPath = window.location.hash
-    })
-  },
-  */
+  
   created() {
     this.games = this.fecthAPI()
   },
