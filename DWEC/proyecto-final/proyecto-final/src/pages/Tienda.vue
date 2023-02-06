@@ -3,7 +3,7 @@
    <div v-if="games"
       v-for="game in games"
       :key="game.id">
-      <h3>{{ game.nombre }}</h3>
+      <a href='#'><h3>{{ game.nombre }}</h3></a> 
     </div>
 </template>
 <script>

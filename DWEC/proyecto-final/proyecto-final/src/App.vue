@@ -50,5 +50,10 @@ export default {
 <template>
   <Header />
   <component :is="currentView" />
+  <router-link to="/">Tienda</router-link>
+    <router-link to="/novedades">Novedades</router-link>
+    <router-link to="/soporte">Soporte</router-link>
+    <router-link to="/comunidad">Comunidad</router-link>
+    <router-view></router-view> 
   <Footer />
 </template>
