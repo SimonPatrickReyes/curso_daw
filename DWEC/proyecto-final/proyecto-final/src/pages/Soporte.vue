@@ -1,4 +1,5 @@
 <template>
-   
-</template>
-<script></script>
+    <h1>Soporte</h1>
+ </template>
+ <script></script>
+ 

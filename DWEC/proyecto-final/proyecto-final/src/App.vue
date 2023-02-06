@@ -10,7 +10,7 @@ const routes = {
   '/': Tienda,
   '/novedades': Novedades,
   '/comunidad': Comunidad,
-  '/soporte': Soporte
+  '/soporte': Soporte,
 }
 
 export default {
@@ -37,11 +37,11 @@ export default {
   created() {
     this.games = this.fecthAPI()
   },
-  methods:{
-    async fecthAPI(){
+  methods: {
+    async fecthAPI() {
       const res = await fetch('http://localhost:3001/api/v1/videojuegos')
-            const data = await res.json()
-            return data
+      const data = await res.json()
+      return data
     }
   },
 }
@@ -51,9 +51,9 @@ export default {
   <Header />
   <component :is="currentView" />
   <router-link to="/">Tienda</router-link>
-    <router-link to="/novedades">Novedades</router-link>
-    <router-link to="/soporte">Soporte</router-link>
-    <router-link to="/comunidad">Comunidad</router-link>
-    <router-view></router-view> 
+  <router-link to="/novedades">Novedades</router-link>
+  <router-link to="/soporte">Soporte</router-link>
+  <router-link to="/comunidad">Comunidad</router-link>
+  <router-view></router-view>
   <Footer />
 </template>
