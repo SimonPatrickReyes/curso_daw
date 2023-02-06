@@ -1,5 +1,9 @@
 <template>
-    <h1>Soporte</h1>
+    <div><h1>Soporte</h1></div>
  </template>
- <script></script>
+ <script>
+export default{
+    name: "Soporte"
+}
+</script>
  

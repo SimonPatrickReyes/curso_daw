@@ -6,34 +6,39 @@ import Soporte from './pages/Soporte.vue'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 
+/*
 const routes = {
   '/': Tienda,
   '/novedades': Novedades,
   '/comunidad': Comunidad,
   '/soporte': Soporte,
 }
-
+*/
 export default {
+  name: "App",
   components: {
     Header,
     Footer,
   },
   data() {
     return {
-      currentPath: window.location.hash,
+      //currentPath: window.location.hash,
       games: [],
     }
   },
   computed: {
-    currentView() {
+    /*currentView() {
       return routes[this.currentPath.slice(1) || '/'] || NotFound
     }
+    */
   },
+  /*
   mounted() {
     window.addEventListener('hashchange', () => {
       this.currentPath = window.location.hash
     })
   },
+  */
   created() {
     this.games = this.fecthAPI()
   },
@@ -49,11 +54,9 @@ export default {
 
 <template>
   <Header />
-  <component :is="currentView" />
-  <router-link to="/">Tienda</router-link>
-  <router-link to="/novedades">Novedades</router-link>
-  <router-link to="/soporte">Soporte</router-link>
-  <router-link to="/comunidad">Comunidad</router-link>
-  <router-view></router-view>
+  <!--<component :is="currentView" />-->
+  <div>
+      <RouterView :key="$route.path"/>
+  </div>
   <Footer />
 </template>

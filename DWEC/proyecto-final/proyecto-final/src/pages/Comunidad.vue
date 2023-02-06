@@ -1,4 +1,8 @@
 <template>
-   <h1>Comunidad</h1>
+   <div><h1>Comunidad</h1></div>
 </template>
-<script></script>
+<script>
+export default{
+   name: "Comunidad"
+}
+</script>
