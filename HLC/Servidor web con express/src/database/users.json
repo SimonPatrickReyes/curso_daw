@@ -1,0 +1,16 @@
+{
+    "users": [
+      {
+        "id": "61dbae02-c147-4e28-863c-db7bd402b2d6",
+        "name": "UserPrueba",
+        "email": "prueba@prueba.com",
+        "password": "1234567890"
+      },
+      {
+        "id": "61dbae02-c147-4e28-863c-db7bd402b2d7",
+        "name": "Christian",
+        "email": "christianReshulon6969@yahoo.es",
+        "password": "1234567890"
+      }    
+    ]
+  }

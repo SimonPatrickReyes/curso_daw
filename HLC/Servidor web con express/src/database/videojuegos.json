@@ -1,0 +1,23 @@
+{
+    "videojuegos": {
+      "Dead Space": {
+        "id":1,
+        "nombre": "Dead Space",
+        "descripcion":"The sci-fi survival-horror classic returns, completely rebuilt to offer an even more immersive experience — including visual, audio, and gameplay improvements — while staying faithful to the original game’s thrilling vision.",
+        "precio":59.99,
+        "etiquetas":["Horror","Third-Person","Shooter","Sci-fiSpace"],
+        "desarrollador":"Motive"
+      },
+      "Red Dead Redemption 2": {
+        "id":1,
+        "nombre": "Red Dead Redemption 2",
+        "descripcion":"Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang, on the run across America at the dawn of the modern age. Also includes access to the shared living world of Red Dead Online.",
+        "precio":59.99,
+        "etiquetas":["Open World","Story Rich","Adventure","Western"],
+        "desarrollador":"Rockstar Games"
+      }
+      
+      
+    }
+}
+  

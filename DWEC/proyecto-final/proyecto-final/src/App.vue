@@ -35,25 +35,15 @@ export default {
     })
   },
   created() {
-    this.games = [
-      {
-        id: 1,
-        tittle:'Dead Space',
-        gender:['Action', 'Adventure'],
-        description:"You are Isaac Clarke, an engineer on the spacecraft USG Ishimura. You're not a warrior. You're not a soldier. You are, however, the last line of defense for the remaining living crew.",
-        price:'19,99€',
-      },
-      {
-        id: 2,
-        tittle:'Red Dead Redemption 2',
-        gender:['Action', 'Adventure'],
-        description:"Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang, on the run across America at the dawn of the modern age. Also includes access to the shared living world of Red Dead Online.",
-        price:'19,79€',
-      },
-
-
-    ]
-  }
+    this.games = this.fecthAPI()
+  },
+  methods:{
+    async fecthAPI(){
+      const res = await fetch('http://localhost:3001/api/v1/videojuegos')
+            const data = await res.json()
+            return data
+    }
+  },
 }
 </script>
 
