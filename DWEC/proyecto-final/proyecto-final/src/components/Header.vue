@@ -1,15 +1,12 @@
 <template>
     <header class="header">
-        <div class="container"> 
-        <router-link to="/">Tienda</router-link>    
-        <router-link to="/novedades">Novedades</router-link>    
-        <router-link to="/soporte">Soporte</router-link>    
-        <router-link to="/comunidad">Comunidad</router-link>
-        </div>
+        <Navegation></Navegation>
     </header>
 </template>
 <script>
+import Navegation from './Navegation.vue';
     export default{
-        name: "Header",
-    }
+    name: "Header",
+    components: { Navegation }
+}
 </script>

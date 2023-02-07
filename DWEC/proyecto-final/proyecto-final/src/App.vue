@@ -1,8 +1,4 @@
 <script>
-import Tienda from './pages/Tienda.vue'
-import Novedades from './pages/Novedades.vue'
-import Comunidad from './pages/Comunidad.vue'
-import Soporte from './pages/Soporte.vue'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 
