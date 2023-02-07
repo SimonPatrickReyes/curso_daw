@@ -44,7 +44,8 @@ const postOneVideogame = (req, res, next) => {
       descripcion: body.descripcion,
       precio: body.precio,
       etiquetas: body.etiquetas,
-      desarrollador: body.desarrollador
+      desarrollador: body.desarrollador,
+      img:body.img
     };
 
     const createdVideogame = videojuegosService.createOneVideogame(newVideogame);

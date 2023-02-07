@@ -7,13 +7,55 @@
 body{
     padding: 0;
     margin: 0;
-    margin-top: 150px;
-    margin-left: 1%;
-    background: #eee;
+    background-image: url(../public/cropped-black-chrome-gradient-ui-gradient-background.jpg);
+    
 }
 
 #app{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     color: #2c3e50
     
 }
+
+.container{
+    background-color: #2c3e50;
+    display: flexbox;
+    flex-direction: row;
+    text-align: center;
+    padding: 1rem;
+}
+
+.container a{
+    text-decoration: none;
+    color: #eee;
+    padding-left: 1rem;
+}
+
+.container a:hover{
+    text-shadow: 1px 1px 20px black, 0 0 1em #eee, 0 0 0.2em #eee;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.tienda{
+    margin: 1rem;
+    text-align: start;
+    display:block;
+    flex-direction: row;
+}
+
+.tienda a{
+    text-decoration: none;
+    color: #eee;   
+}
+
+.tienda p{
+    font-size: 1rem;  
+}
+
+.tienda a:hover{
+    text-shadow: 1px 1px 20px black, 0 0 1em #eee, 0 0 0.2em #eee;
+    font-weight: 600;
+    font-size: 1rem;
+}
+

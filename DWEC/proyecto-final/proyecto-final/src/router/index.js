@@ -7,9 +7,9 @@ import Comunidad from '../pages/Comunidad.vue'
 
 const routes = [
     {path: '/',name: 'Tienda', component: Tienda},
-    {path: '/novedades',name: 'Novedades', component: Novedades},
-    {path: '/soporte',name: 'Soporte', component: Soporte},
-    {path: '/comunidad',name: 'Comunidad', component: Comunidad},
+    {path: '/novedades',name: 'Novedades', component: ()=>import('@/pages/Novedades.vue')},
+    {path: '/soporte',name: 'Soporte', component:  ()=>import('@/pages/Soporte.vue')},
+    {path: '/comunidad',name: 'Comunidad', component:  ()=>import('@/pages/Comunidad.vue')},
 ]
 
 

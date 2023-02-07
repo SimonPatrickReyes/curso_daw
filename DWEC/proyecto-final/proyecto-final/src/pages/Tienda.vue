@@ -1,11 +1,10 @@
-<template>
-  <div class="tienda">
-  <h1>Tienda</h1>
+
+<template> 
    <div v-if="games"
       v-for="game in games"
-      :key="game.id">
-      <a href='#'><h3>{{ game.nombre }}</h3></a> 
-    </div></div>
+      :key="game.id" class="tienda">
+      <a href='#'><img :src="`/images/${game.img}`" alt=""><h3>{{ game.nombre }} <p>{{ game.precio+"€" }}</p></h3></a> 
+    </div>
 </template>
 <script>
 export default {
@@ -13,6 +12,7 @@ export default {
 data() {
     return {
       games: [],
+      ruta : "../images/"
     }
   },
   async created() {
