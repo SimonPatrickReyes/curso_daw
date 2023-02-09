@@ -1,14 +1,14 @@
 const express = require("express")
 const router = express.Router()
-const videojuegosController = require("../../controllers/videojuegosController")
+const videogamesController = require("../../controllers/videogamesController")
 
 router.route("/")
-    .get(videojuegosController.getAllVideogames) //http://localhost:3001/api/v1/videojuegos/
+    .get(videogamesController.getAllVideogames) //http://localhost:3001/api/v1/videogames/
     .post()
 router.route("/:prod")
-    .get(videojuegosController.getOneVideogame) //http://localhost:3001/api/v1/videojuegos/deadspace
-    .delete(videojuegosController.deleteOneVideogame)
-    .put(videojuegosController.putOneVideogame)
-    .post(videojuegosController.postOneVideogame)
+    .get(videogamesController.getOneVideogame) //http://localhost:3001/api/v1/videogames/deadspace
+    .delete(videogamesController.deleteOneVideogame)
+    .put(videogamesController.putOneVideogame)
+    .post(videogamesController.postOneVideogame)
 
 module.exports = router

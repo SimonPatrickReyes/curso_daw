@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     async fecthAPI() {
-      const res = await fetch('http://localhost:3001/api/v1/videojuegos')
+      const res = await fetch('http://localhost:3001/api/v1/videogames')
       const data = await res.json()
       return data
     }

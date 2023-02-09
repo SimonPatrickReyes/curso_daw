@@ -1,21 +1,21 @@
-var datos = require("./videojuegos.json")
+var datos = require("./videogames.json")
 const fs = require("fs")
 
 const getAllVideogames = () => {
-    return datos.videojuegos
+    return datos.videogames
 }
 
 const getOneVideogame = (nombre) => {
-    const videojuego = datos.videojuegos[nombre]
-    return videojuego
+    const videogame = datos.videogames[nombre]
+    return videogame
 }
 
 const deleteOneVideogame = (nombre) => {
   
-  delete datos.videojuegos[nombre];
+  delete datos.videogames[nombre];
   
   fs.writeFileSync(
-    "./src/database/videojuegos.json",
+    "./src/database/videogames.json",
     JSON.stringify(datos, null, 2),
     "utf8"
   );
@@ -56,18 +56,18 @@ const createOneProduct2 = (newProduct) => {
 const createOneVideogame = (newVideogame) => {
 
     //Compruebo si el producto a insertar ya existe en la base de datos
-    if (datos["videojuegos"][`${newVideogame.nombre.replace(/\s+/g, "").toLowerCase()}`]){
+    if (datos["videogames"][`${newVideogame.nombre.replace(/\s+/g, "").toLowerCase()}`]){
         return false;
     }
     
     //Si el producto no existe, entonces se introduce en la BDD
     let aux = newVideogame.nombre
     let nombre = aux.replace(/\s+/g, "").toLowerCase();
-    datos["videojuegos"][nombre] = newVideogame;
+    datos["videogames"][nombre] = newVideogame;
 
     //Escribo el producto nuevo en el fichero JSON
     fs.writeFileSync(
-      "./src/database/videojuegos.json",
+      "./src/database/videogames.json",
       JSON.stringify(datos, null, 2),
       "utf8"
     );

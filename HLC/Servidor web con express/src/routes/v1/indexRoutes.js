@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const videojuegosRouter = require("./videojuegosRoutes")
+const videogamesRouter = require("./videogamesRoutes")
 
 //RUTA DE ENTRADA HASTA ESTE MÓDULO: /api/v1
 
@@ -10,6 +10,6 @@ router.route("/")
         res.locals.mensaje = "OK"
         next()
     });
-router.use("/videojuegos", videojuegosRouter);
+router.use("/videogames", videogamesRouter);
 
 module.exports.router = router

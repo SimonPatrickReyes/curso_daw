@@ -1,0 +1,47 @@
+{
+  "videogames": {
+    "Dead Space": {
+      "id": 0,
+      "name": "Dead Space",
+      "description": "The sci-fi survival-horror classic returns, completely rebuilt to offer an even more immersive experience — including visual, audio, and gameplay improvements — while staying faithful to the original game’s thrilling vision.",
+      "price": 59.99,
+      "tags": [
+        "Horror",
+        "Third-Person",
+        "Shooter",
+        "Sci-fiSpace"
+      ],
+      "development": "Motive",
+      "img":"deadSpace.jpg"
+    },
+    "Red Dead Redemption 2": {
+      "id": 1,
+      "name": "Red Dead Redemption 2",
+      "description": "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang, on the run across America at the dawn of the modern age. Also includes access to the shared living world of Red Dead Online.",
+      "price": 59.99,
+      "tags": [
+        "Open World",
+        "Story Rich",
+        "Adventure",
+        "Western"
+      ],
+      "development": "Rockstar Games",
+      "img": "redDeadRedemption.jpg"
+    },
+    "Rust": {
+      "id": 2,
+      "name": "Rust",
+      "description": "The only aim in Rust is to survive. Everything wants you to die - the island’s wildlife and other inhabitants, the environment, other survivors. Do whatever it takes to last another night.",
+      "price":39.99,
+      "tags": [
+        "Survival", 
+        "Crafting", 
+        "Multiplayer",
+        "Open World",
+        "PvP"
+      ],
+      "development": "Facepunch Studios",
+      "img": "deadSpace.jpg"
+    }
+  }
+}

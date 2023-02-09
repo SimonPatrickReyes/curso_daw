@@ -1,5 +1,5 @@
 //const { next } = require("cheerio/lib/api/traversing");
-const videojuegosService = require("../services/videojuegosService");
+const videogamesService = require("../services/videogamesService");
 /*
 CONTROLADOR
 En el controlador se implementa la lógica de la aplicación.
@@ -8,7 +8,7 @@ con la Base de Datos.
 En el controlador simplemente "se reparte el juego".
 */
 const getAllVideogames = (req, res, next) => {
-  const allVideogames = videojuegosService.getAllVideogames();
+  const allVideogames = videogamesService.getAllVideogames();
   res.send(allVideogames).end();
   res.locals.mensaje = "OK";
   next();
@@ -19,9 +19,9 @@ const getAllVideogames = (req, res, next) => {
   Realiza la división entre "controlador" "servicio" "modelo"
 */
 const getOneVideogame = (req, res, next) => {
-  let nombreVideogameo = req.params.prod;
-  const Videogameo = videojuegosService.getOneVideogame(nombreVideogameo);
-  res.send(Videogameo).end();
+  let nameVideogame = req.params.prod;
+  const Videogame = videogamesService.getOneVideogame(nameVideogame);
+  res.send(Videogame).end();
   res.locals.mensaje = "OK";
   next();
 };
@@ -34,21 +34,21 @@ const getOneVideogame = (req, res, next) => {
 const postOneVideogame = (req, res, next) => {
   const { body } = req;
 
-  if (!body.nombre || !body.precio) {
+  if (!body.name || !body.price) {
     res.status(400).send({ mensaje: "Datos Incompletos" }).end();
     res.locals.mensaje = "NOT OK";
   } else {
     const newVideogame = {
       id: body.id,
-      nombre: body.nombre,
-      descripcion: body.descripcion,
-      precio: body.precio,
-      etiquetas: body.etiquetas,
-      desarrollador: body.desarrollador,
+      name: body.name,
+      description: body.description,
+      price: body.price,
+      tags: body.tags,
+      development: body.development,
       img:body.img
     };
 
-    const createdVideogame = videojuegosService.createOneVideogame(newVideogame);
+    const createdVideogame = videogamesService.createOneVideogame(newVideogame);
 
     if (createdVideogame) {
       res.send(createdVideogame).end();
@@ -62,8 +62,8 @@ const postOneVideogame = (req, res, next) => {
 };
 
 const putOneVideogame = (req, res, next) => {
-  let nombreVideojuego = req.params.prod;
-  res.send(`<h1>PUT ${nombreVideojuego}</h1>`).end();
+  let nameVideogame = req.params.prod;
+  res.send(`<h1>PUT ${nameVideogame}</h1>`).end();
   res.locals.mensaje = "OK";
   next();
 };
@@ -71,7 +71,7 @@ const putOneVideogame = (req, res, next) => {
 const deleteOneVideogame = (req, res, next) => {
   let { prod } = req.params;
 
-  const deletedVideogame = videojuegosService.deleteOneVideogame(prod);
+  const deletedVideogame = videogamesService.deleteOneVideogame(prod);
 
   if (!deletedVideogame) {
     res.status(400).send({ mensaje: "Videojuego no eliminado" }).end();

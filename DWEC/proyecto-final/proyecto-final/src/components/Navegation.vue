@@ -9,8 +9,8 @@
     export default{
         name: "Navegation",
         methods:{
-            async fetchVideojuego(){
-                const res=await fetch("http://localhost:3001/api/v1/videojuegos")
+            async fetchVideogame(){
+                const res=await fetch("http://localhost:3001/api/v1/videogames")
                 const gamesData= Object.values(await res.json())
                 return gamesData
             }

@@ -3,7 +3,7 @@
    <div v-if="games"
       v-for="game in games"
       :key="game.id" class="tienda">
-      <a href='#'><img :src="`/images/${game.img}`" alt=""><h3>{{ game.nombre }} <p>{{ game.precio+"€" }}</p></h3></a> 
+      <a href='#'><img :src="`/images/${game.img}`" alt=""><h3>{{ game.name }} <p>{{ game.price+"€" }}</p></h3></a> 
     </div>
 </template>
 <script>
@@ -22,7 +22,7 @@ data() {
   methods:{
     async fecthAPI(){
         console.log("fetch")
-      const res = await fetch('http://localhost:3001/api/v1/videojuegos')
+      const res = await fetch('http://localhost:3001/api/v1/videogames')
             const data = await res.json()
             console.log(data)
             return data

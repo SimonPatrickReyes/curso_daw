@@ -10,6 +10,7 @@ const routes = [
     {path: '/novedades',name: 'Novedades', component: ()=>import('@/pages/Novedades.vue')},
     {path: '/soporte',name: 'Soporte', component:  ()=>import('@/pages/Soporte.vue')},
     {path: '/comunidad',name: 'Comunidad', component:  ()=>import('@/pages/Comunidad.vue')},
+    {path: '/videogames/:id', name: 'videogames.show', component: ()=>import('@/pages/VideogamesShow.vue')}
 ]
 
 
