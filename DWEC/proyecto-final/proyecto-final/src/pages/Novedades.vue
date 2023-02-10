@@ -2,7 +2,7 @@
     <div class="novedades">
         <h1>Novedades</h1>
         <div v-if="games">
-            <router-link v-for="videogame in games" :key="videogame.id"
+           <router-link v-for="videogame in games" :key="videogame.id"
                 :to="{ name: 'videogames.show', params: { id: videogame.id } }">
                 <img :src=imgSrc(videogame) alt="videogame.name">
                 <h2>{{ videogame.name }}</h2>

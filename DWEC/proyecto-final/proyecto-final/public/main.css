@@ -7,14 +7,12 @@
 body{
     padding: 0;
     margin: 0;
-    background-image: url(/cropped-black-chrome-gradient-ui-gradient-background.jpg);
-    
+    background-image: url(/cropped-black-chrome-gradient-ui-gradient-background.jpg) 
 }
 
 #app{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: #2c3e50
-    
+    color: #eee
 }
 
 .container{
@@ -64,5 +62,37 @@ body{
     padding: 2rem;
 }
 
+.novedades{
+    display: grid;
+    flex-direction: row;
+    margin: 1rem;
+    text-align: start;
+    display:block;
+    flex-direction: row;
+    text-decoration: none;
+    color: #eee;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
 
 
+.novedades h1{
+    padding-bottom: 1rem;
+}
+
+
+.novedades h2{
+    color: #eee;
+    text-decoration: none;
+}
+
+.novedades img{
+    height: 10rem;
+    transition: transform .5s ease;
+}
+
+.novedades img:hover{
+    opacity: 65%;
+    transform: scale(1.1);
+}

@@ -41,7 +41,93 @@
         "PvP"
       ],
       "development": "Facepunch Studios",
-      "img": "deadSpace.jpg"
-    }
+      "img": "rust.jpg"
+    },
+    "Garry's Mod": {
+      "id": 3,
+      "name": "Garry's Mod",
+      "description": "Garry's Mod is a physics sandbox. There aren't any predefined aims or goals. We give you the tools and leave you to play.",
+      "price":9.99,
+      "tags": [
+        "Sandbox",  
+        "Multiplayer",
+        "Funny",
+        "Moddeable",
+        "Mod"
+      ],
+      "development": "Facepunch Studios",
+      "img": "garrysmod.jpg"
+    },
+    "Project Zomboid": {
+      "id": 4,
+      "name": "Project Zomboid",
+      "description": "Project Zomboid is the ultimate in zombie survival. Alone or in MP: you loot, build, craft, fight, farm and fish in a struggle to survive. A hardcore RPG skillset, a vast map, massively customisable sandbox and a cute tutorial raccoon await the unwary. So how will you die? All it takes is a bite...",
+      "price":11.24,
+      "tags": [
+        "Survival",  
+        "Zombies",
+        "Open World",
+        "Multiplayer",
+        "2D"
+      ],
+      "development": "Facepunch Studios",
+      "img": "projectzomboid.jpg"
+    },
+    "Sea of Thieves": {
+      "id": 5,
+      "name": "Sea of Thieves",
+      "description": "Sea of Thieves offers the essential pirate experience, from sailing and fighting to exploring and looting – everything you need to live the pirate life and become a legend in your own right. With no set roles, you have complete freedom to approach the world, and other players, however you choose.",
+      "price":19.99,
+      "tags": [
+        "Adventure",  
+        "Multiplayer",
+        "Open World",
+        "Pirates"
+      ],
+      "development": "Rare Ltd",
+      "img": "seaofthieves.jpg"
+    },
+    "Fallout: New Vegas": {
+      "id": 6,
+      "name": "Fallout: New Vegas",
+      "description": "Welcome to Vegas. New Vegas. Enjoy your stay!",
+      "price":9.99,
+      "tags": [
+        "Open World",  
+        "RPG",
+        "Post-apocalyptic",
+        "Singleplayer"
+      ],
+      "development": "Obsidian Entertainment",
+      "img": "falloutnewvegas.jpg"
+  },
+  "The Elder Scrolls V: Skyrim Special Edition": {
+      "id": 7,
+      "name": "The Elder Scrolls V: Skyrim Special Edition",
+      "description": "Winner of more than 200 Game of the Year Awards, Skyrim Special Edition brings the epic fantasy to life in stunning detail. The Special Edition includes the critically acclaimed game and add-ons with all-new features like remastered art and effects, volumetric god rays, dynamic depth of field, screen-space...",
+      "price":39.99,
+      "tags": [
+        "Open World",  
+        "RPG",
+        "Adventure",
+        "Singleplayer"
+      ],
+      "development": "Bethesda Game Studios",
+      "img": "skyrimespecialedition.jpg"
+},
+"Tom Clancy's Rainbow Six® Siege": {
+      "id": 8,
+      "name": "Tom Clancy's Rainbow Six® Siege",
+      "description": "Tom Clancy's Rainbow Six® Siege is an elite, tactical team-based shooter where superior planning and execution triumph.",
+      "price":19.99,
+      "tags": [
+        "FPS",  
+        "Hero Shooter",
+        "Multiplayer",
+        "Tactical"
+      ],
+      "development": "Ubisoft Montreal",
+      "img": "rainbowsixeige.jpg"
+}
   }
 }
