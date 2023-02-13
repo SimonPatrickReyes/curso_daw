@@ -5,7 +5,6 @@
     <img :src=imgPath+videogame.img alt="">
     <h1>{{ videogame.name}}</h1>
     <div>
-        
         <p>{{ videogame.description }}</p>
     </div></body>
    </section>

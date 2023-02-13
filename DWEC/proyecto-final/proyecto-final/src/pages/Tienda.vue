@@ -3,7 +3,8 @@
    <div v-if="games"
       v-for="game in games"
       :key="game.id" class="tienda">
-      <a href='#'><img :src="`/images/${game.img}`" alt=""><h3>{{ game.name }} <p>{{ game.price+"€" }}</p></h3></a> 
+      <router-link class="tienda_router" :to="{ name: 'videogames.show', params: { id: game.id } }">
+      <img :src=imgSrc(game) alt="videogame.name"> <h3>{{ game.name }}</h3> </router-link><ul><li v-for="tag in game.tags">{{tag}}</li></ul> <h4>{{ game.price+"€" }}</h4>
     </div>
 </template>
 <script>
@@ -26,7 +27,10 @@ data() {
             const data = await res.json()
             console.log(data)
             return data
-    }
+    },
+    imgSrc(videogame){
+            return `/src/images/${videogame.img}`
+        }
   },
 }
 </script>
