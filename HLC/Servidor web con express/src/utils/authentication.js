@@ -7,7 +7,7 @@
 const { v1: uuid } = require("uuid");
 const authenticationService = require("../services/authenticationService");
 
-const authenticateUser = (req, res, next) => {
+const login = (req, res, next) => {
   const { password, email } = req.body;
   const { cookies } = req;
 
@@ -16,7 +16,7 @@ const authenticateUser = (req, res, next) => {
   
   //Si no hay datos relativos a la autenticación del usuario, se rechaza la conexión
   if (!password && !email && !cookies.sessionId) {
-    res.status(401).send({ mensaje: "NO AUTORIZADO" }).end();
+    res.status(401).send({ mensaje: "PERMISSION DENIED" }).end();
     return;
   }
 
@@ -27,7 +27,7 @@ const authenticateUser = (req, res, next) => {
     //SE comprueba que el usuario está registrado en el sistema
     const id = authenticationService.checkUserEmail(email, password);
     if (!id) {
-      res.status(401).send({ mensaje: "NO AUTORIZADO" }).end();
+      res.status(401).send({ mensaje: "PERMISSION DENIED" }).end();
       return;
     }
 
@@ -50,13 +50,13 @@ const authenticateUser = (req, res, next) => {
     //Si no se encuentra su sessionId, entonces es que el usuario no es reconocido
     const { sessionId } = cookies;
     if (!authenticationService.checkSession(sessionId)) {
-      res.status(401).send({ mensaje: "NO AUTORIZADO" }).end();
+      res.status(401).send({ mensaje: "PERMISSION DENIED" }).end();
       return;
     }
     next();
   } else {
-    throw new Error("Error desconocido");
+    throw new Error("UNKNOWN ERROR");
   }
 };
 
-module.exports.authenticateUser = authenticateUser;
+module.exports.login = login;

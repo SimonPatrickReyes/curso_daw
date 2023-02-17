@@ -31,8 +31,14 @@ export default {
 <template>
   <Header />
   <!--<component :is="currentView" />-->
-  <div>
+  <main>
       <RouterView :key="$route.path"/>
-  </div>
+  </main>
   <Footer />
 </template>
+<style>
+main{
+  width: 100%;
+  text-align: center;
+}
+</style>

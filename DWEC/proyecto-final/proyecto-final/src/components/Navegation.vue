@@ -20,8 +20,9 @@
 
 <style>
 .container .vue-active-link{
-    text-shadow: 1px 1px 20px black, 0 0 1em #eee, 0 0 0.2em #eee;
+    text-shadow: 0px 1px 8px black, 0 0 0 rgb(5, 10, 10), 0 0 0.2em #eee;
     font-weight: 600;
     font-size: 1rem;
+    border-width: 1rem;
 }
 </style>

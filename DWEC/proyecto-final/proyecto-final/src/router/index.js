@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router"
 import Tienda from '../pages/Tienda.vue'
-import Novedades from '../pages/Novedades.vue'
-import Soporte from '../pages/Soporte.vue'
-import Comunidad from '../pages/Comunidad.vue'
+
 
 
 const routes = [

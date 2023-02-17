@@ -3,12 +3,13 @@ const app = express()
 const v1 = require("./routes/v1/indexRoutes")
 const cors = require('cors')
 const config = require('./config')
+const cookieParser = require("cookie-parser");
 
 const bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(cookieParser());  
 var corsOptions = {
   origin: 'http://localhost:5173',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
