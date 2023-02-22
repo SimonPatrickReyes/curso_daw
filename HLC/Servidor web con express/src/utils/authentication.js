@@ -21,7 +21,7 @@ const login = (req, res, next) => {
   }
 
   //Si hay datos relativos al email y la contraseña, entonces se trata como si fuera el primer login
-  if (req.body && password && email) {
+  if (password && email) {
     console.log("CHECK USER");
 
     //SE comprueba que el usuario está registrado en el sistema
@@ -38,7 +38,7 @@ const login = (req, res, next) => {
       authenticationService.addSession(id, sessionId);
     }
 
-    res.cookie("sessionId", sessionId, { hhtpOnly: true });
+    res.cookie("sessionId", sessionId, { httpOnly: true });
 
     next();
 
