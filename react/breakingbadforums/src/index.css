@@ -1,5 +1,8 @@
 @import "https://fonts.google.com/specimen/Arial, Helvetica, sans-serif";
-*, :before, :after {
+
+*,
+:before,
+:after {
   box-sizing: border-box;
 }
 
@@ -107,7 +110,9 @@ header .nav-pc {
 }
 
 header .nav-pc .logo {
-  width: 15%;
+  min-width: 100px;
+  max-width: 300px;
+  width: 100%;
 }
 
 header .nav-pc .search_bar {
@@ -164,11 +169,11 @@ header .nav-pc a {
   }
 }
 
-header .nav-pc > img {
+header .nav-pc>img {
   width: 10%;
 }
 
-header .nav-pc > img:hover {
+header .nav-pc>img:hover {
   transition: scale .8s;
   scale: 1.1;
 }
@@ -550,7 +555,7 @@ main a {
   border: 8px inset #a5cbaa;
 }
 
-.threads select:focus > option:checked {
+.threads select:focus>option:checked {
   color: #95b799;
   background: #122005 !important;
 }
@@ -701,7 +706,7 @@ main a {
   transition: background-color .5s;
 }
 
-.char__a{
+.char__a {
   height: 19.375rem;
   width: 19.375rem;
 }
@@ -792,7 +797,8 @@ main a {
   }
 }
 
-.character__aside .character__profile, .character__aside .character__profile img {
+.character__aside .character__profile,
+.character__aside .character__profile img {
   width: 100%;
 }
 
