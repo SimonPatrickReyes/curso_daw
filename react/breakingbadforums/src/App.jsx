@@ -37,10 +37,7 @@ function App() {
 
   return(
     <div>
-     <Navbar></Navbar>
-     <div className="container">
       <Characters characters={characters} />
-     </div>
      </div>
   )
 

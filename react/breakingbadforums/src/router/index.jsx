@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
-import Threads from "../pages/Threads";
 import Episodes from "../pages/Episodes";
 import Characters from "../pages/Characters";
+import Character from "../pages/Character";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
@@ -21,11 +21,7 @@ export const router = createBrowserRouter([
                 index: true,
                 element: <Home />,
             },
-    {
-        path: "/threads",
-        element: <Threads />,
-        
-    },
+    
     {
         path: "/episodes",
         element: <Episodes />,
@@ -34,6 +30,11 @@ export const router = createBrowserRouter([
     {
         path: "/characters",
         element: <Characters />,
+       
+    },
+    {
+        path: "/character/:id",
+        element: <Character />,
        
     },
     {

@@ -1,36 +1,65 @@
 
-import React,{useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
+import Paginacion from '../components/Paginacion'
+
 
 
 const Characters = () => {
     const [personajes, setPersonajes] = useState([])
-    fetch('https://thronesapi.com/api/v2/Characters')
-    .then((res) => res.json())
-    .then((data) => {
-        console.log(data)
-        setPersonajes(data)
-    }
-    )
+    useEffect(() => {
+        const headers = {
+            'Accept': 'application/json',
+        }
+        fetch('https://bobsburgers-api.herokuapp.com/characters', { headers: headers })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+                setPersonajes(data)
+            }
+            )
+        console.log(personajes)
+    }, [])
 
-    
-        
-    return(   
+    const itemsPerPage = 20;
+    useEffect(() => {
+        setItems([...personajes].splice(0, itemsPerPage))
+    }, [personajes])
+
+    const [items, setItems] = useState([...personajes].splice(0, itemsPerPage))
+
+    const [currentPage, setCurrentPage] = useState(0);
+
+
+
+    const nextHandler = () => {
+        const totalItems = personajes.length;
+
+        const nextPage = currentPage + 1;
+
+        const firstIndex = nextPage * itemsPerPage;
+
+        if (firstIndex === totalItems) return;
+
+        setItems([...personajes].splice(firstIndex, itemsPerPage))
+        setCurrentPage(nextPage)
+    }
+
+    const prevHandler = () => {
+        const prevPage = currentPage - 1;
+        if (prevPage < 0) return;
+
+        const firstIndex = prevPage * itemsPerPage;
+
+        setItems([...personajes].splice(firstIndex, itemsPerPage))
+        setCurrentPage(prevPage)
+    }
+
+
+    return (
         <main className='characters'>
-        <h1 className='char_tittle'>Characters</h1>        
-        <div className='char__images'>
-        {personajes != null ? (
-                personajes.map(personaje=> (
-                    <div key={personaje.id} className='char__images'>
-                        <a href={"https://thronesapi.com/assets/images/"+personaje.image}>{personaje.name}
-                        <p className='char__names'>{personaje.name}</p>
-                        <img src={"https://thronesapi.com/assets/images/"+personaje.image} alt="" />
-                        <h3 className='char__h3'>{personaje.name}</h3>
-                    </a>
-                    </div>
-                ))        
-            ):('No characters available')}
-            </div>
-            </main>
+            <h1 className='char__tittle'>Characters</h1>
+            <Paginacion currentPage={0} items={items} nextHandler={nextHandler} prevHandler={prevHandler}></Paginacion>
+        </main>
     )
 }
 

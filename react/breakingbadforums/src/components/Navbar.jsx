@@ -20,7 +20,6 @@ const Navbar = () => {
     }
 
     return (
-        <header>
         <nav className="nav-pc">
             <NavLink to="/" target="_blank">
                 <img src={logo} className="logo" alt="logo" />
@@ -31,10 +30,6 @@ const Navbar = () => {
                         <p className="nav-pc__p">Home</p>
                     </NavLink>
                 </li>
-                <li className="nav-pc__li">
-                    <NavLink to="/threads" className="btn btn-outline-primary">
-                        <p className="nav-pc__p">Threads</p>
-                    </NavLink></li>
                 <li className="nav-pc__li">
                     <NavLink to="/characters" className="btn btn-outline-primary">
                         <p className="nav-pc__p">Characters</p>
@@ -58,7 +53,6 @@ const Navbar = () => {
                 ):(
                 )*/}
         </nav>
-        </header>
     );
 };
 
