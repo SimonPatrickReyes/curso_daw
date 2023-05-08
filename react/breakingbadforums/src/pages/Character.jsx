@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
+
 const Character = () => {
     const [personaje, setPersonaje] = useState([])
     var  {id}  = useParams()
@@ -19,17 +20,44 @@ const Character = () => {
     }, [])
 
 
+
+
     return (
-        <div>
-            <h1>{personaje.name}</h1>
-            <img src={`${personaje.image}`} alt="{personaje.name}" />
-            
-          </div>
+        <main className='character'>
+        <aside className='character__aside'>
+        <h3 class="character__h3">{personaje.name}</h3>
+        <img src={`${personaje.image}`} alt="{personaje.name}" className='character__img'/>
+        <div class="character__details">
+        <span class="details__tittle">Voiced by</span> <span>{personaje.voicedBy}</span>
+
+
+
+
+        <span class="details__tittle">Gender</span> <span>{personaje.gender}</span>
+
+
+        <span class="details__tittle">Hair color</span> <span>{personaje.hairColor}</span>
+       
+        <span class="details__tittle">Ocupation</span> <span>{personaje.occupation}</span>
+
+
+        <span class="details__tittle">First episode</span> <span>{personaje.firstEpisode}</span>
+
+
+      </div>
+        </aside>
+        </main>
     )
+
+
+
+
 
 
 
 
 }
 
+
 export default Character
+

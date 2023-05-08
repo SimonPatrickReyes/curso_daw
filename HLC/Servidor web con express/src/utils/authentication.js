@@ -1,62 +1,71 @@
-/*
-    AUTHENTICATION BY SESSION
-    La idea aquí es que el usuario se loguee con usuario y contraseña
-    Si el usuario y la contraseña existen, entonces se le otorga una
-    id única que se guardará en un fichero JSON.
-*/
-const { v1: uuid } = require("uuid");
-const authenticationService = require("../services/authenticationService");
+const authenticationService = require("../services/authenticationService")
 
 const login = (req, res, next) => {
-  const { password, email } = req.body;
-  const { cookies } = req;
-
-  console.log(req.body)
-  console.log(req.cookies);
-  
-  //Si no hay datos relativos a la autenticación del usuario, se rechaza la conexión
-  if (!password && !email && !cookies.sessionId) {
-    res.status(401).send({ mensaje: "PERMISSION DENIED" }).end();
-    return;
+//0. Obtenemos los diferentes datos de la petición
+  const { email, password } = req.body;
+  const sessionId = req.cookies.sessionId;
+  if (!email && !password && !sessionId) {
+    res.status(401).send({ mensaje: "NO AUTORIZADO" }).end();
   }
-
-  //Si hay datos relativos al email y la contraseña, entonces se trata como si fuera el primer login
-  if (password && email) {
-    console.log("CHECK USER");
-
-    //SE comprueba que el usuario está registrado en el sistema
-    const id = authenticationService.checkUserEmail(email, password);
-    if (!id) {
-      res.status(401).send({ mensaje: "PERMISSION DENIED" }).end();
-      return;
+  if (email && password) {
+    const credenciales = {
+      email,
+      password
     }
-
-    //Si el usuario existe, primero comprobamos si tiene una session asignada
-    let sessionId = authenticationService.checkIfSessionExist(id);
-    if (!sessionId) {
-      sessionId = uuid();
-      authenticationService.addSession(id, sessionId);
+    const idUserLogueado = authenticationService.checkUser(credenciales)
+    if (!idUserLogueado) {
+      res.status(401).send({ mensaje: "NO AUTORIZADO" }).end();
     }
-
-    res.cookie("sessionId", sessionId, { httpOnly: true });
-
-    next();
-
-
-  } else if (cookies.sessionId) {
-    console.log("CHECK COOKIE");
-
-    //Si el usuario ya se ha logueado anteriormente, se comprueba la validez de su cookie
-    //Si no se encuentra su sessionId, entonces es que el usuario no es reconocido
-    const { sessionId } = cookies;
-    if (!authenticationService.checkSession(sessionId)) {
-      res.status(401).send({ mensaje: "PERMISSION DENIED" }).end();
-      return;
-    }
-    next();
-  } else {
-    throw new Error("UNKNOWN ERROR");
+    const sessionId = authenticationService.generateSessionId(idUserLogueado)
+    res.cookie("sessionId", sessionId, { httpOnly: false })
+    const userData =  authenticationService.getUser(sessionId)
+    res.status(200).send({message: "AUTORIZADO", user: userData}).end();
   }
+  else if (sessionId) {
+    if (authenticationService.checkCookieSession(sessionId)) {
+      res.cookie("sessionId", sessionId, { httpOnly: false })
+      const userData =  authenticationService.getUser(sessionId)
+      res.status(200).send({message:"AUTORIZADO", user: userData}).end()
+    }
+  }
+  res.status(500).send("NO AUTORIZADO").end()
 };
 
-module.exports.login = login;
+const signup = (req, res, next) => {
+
+  //0. Obtenemos los diferentes datos de la petición
+  const { name, email, password } = req.body;
+  //1º Comprobar si el email ya está en uso
+  if (authenticationService.checkEmail(email)) {
+    res.status(401).send({ mensaje: "EMAIL EN USO" });
+    return;
+  }
+  //2º Registrar el usuario
+  const datos = {
+    name,
+    email,
+    password
+  }
+  authenticationService.createUser(datos)
+  return res.status(200).json({ message: 'Usuario creado con éxito' });
+};
+
+const logout = (req, res, next) => {
+  authenticationService.deleteSession(req.cookies.sessionId);
+  // // No enviar la cookie en futuras respuestas
+  res.clearCookie("sessionId");
+  res.status(200).send(req.cookies.sessionId).end();
+}
+
+const getUser = (req, res, next) => {
+  const sessionId = req.cookies.sessionId;
+  const userData =  authenticationService.getUser(sessionId)
+  res.status(200).send(userData).end();
+}
+
+module.exports = {
+  login,
+  signup,
+  logout,
+  getUser
+};

@@ -1,32 +1,19 @@
 {
   "videogames": {
-    "Dead Space": {
-      "id": 0,
-      "name": "Dead Space",
-      "description": "The sci-fi survival-horror classic returns, completely rebuilt to offer an even more immersive experience — including visual, audio, and gameplay improvements — while staying faithful to the original game’s thrilling vision.",
-      "price": 59.99,
-      "tags": [
-        "Horror",
-        "Third-Person",
-        "Shooter",
-        "Sci-fi Space"
-      ],
-      "development": "Motive",
-      "img":"deadSpace.jpg"
-    },
     "Red Dead Redemption 2": {
       "id": 1,
       "name": "Red Dead Redemption 2",
       "description": "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang, on the run across America at the dawn of the modern age. Also includes access to the shared living world of Red Dead Online.",
       "price": 59.99,
       "tags": [
-        "Open World",
-        "Story Rich",
+        "Open_World",
+        "Story_Rich",
         "Adventure",
         "Western"
       ],
       "development": "Rockstar Games",
-      "img": "redDeadRedemption.jpg"
+      "img": "redDeadRedemption.jpg",
+      "relaseDate":"5 Dec, 2019"
     },
     "Rust": {
       "id": 2,
@@ -37,11 +24,12 @@
         "Survival", 
         "Crafting", 
         "Multiplayer",
-        "Open World",
+        "Open_World",
         "PvP"
       ],
       "development": "Facepunch Studios",
-      "img": "rust.jpg"
+      "img": "rust.jpg",
+      "relaseDate":"8 Feb, 2018"
     },
     "Garry's Mod": {
       "id": 3,
@@ -56,7 +44,8 @@
         "Mod"
       ],
       "development": "Facepunch Studios",
-      "img": "garrysmod.jpg"
+      "img": "garrysmod.jpg",
+      "relaseDate":"29 Nov, 2006"
     },
     "Project Zomboid": {
       "id": 4,
@@ -66,12 +55,13 @@
       "tags": [
         "Survival",  
         "Zombies",
-        "Open World",
+        "Open_World",
         "Multiplayer",
         "2D"
       ],
       "development": "Facepunch Studios",
-      "img": "projectzomboid.jpg"
+      "img": "projectzomboid.jpg",
+      "relaseDate":"8 Nov, 2013"
     },
     "Sea of Thieves": {
       "id": 5,
@@ -81,11 +71,12 @@
       "tags": [
         "Adventure",  
         "Multiplayer",
-        "Open World",
+        "Open_World",
         "Pirates"
       ],
       "development": "Rare Ltd",
-      "img": "seaofthieves.jpg"
+      "img": "seaofthieves.jpg",
+      "relaseDate":"3 Jun, 2020"
     },
     "Fallout: New Vegas": {
       "id": 6,
@@ -93,13 +84,14 @@
       "description": "Welcome to Vegas. New Vegas. Enjoy your stay!",
       "price":9.99,
       "tags": [
-        "Open World",  
+        "Open_World",  
         "RPG",
         "Post-apocalyptic",
         "Singleplayer"
       ],
       "development": "Obsidian Entertainment",
-      "img": "falloutnewvegas.jpg"
+      "img": "falloutnewvegas.jpg",
+      "relaseDate":"22 Oct, 2010"
   },
   "The Elder Scrolls V: Skyrim Special Edition": {
       "id": 7,
@@ -107,13 +99,14 @@
       "description": "Winner of more than 200 Game of the Year Awards, Skyrim Special Edition brings the epic fantasy to life in stunning detail. The Special Edition includes the critically acclaimed game and add-ons with all-new features like remastered art and effects, volumetric god rays, dynamic depth of field, screen-space...",
       "price":39.99,
       "tags": [
-        "Open World",  
+        "Open_World",  
         "RPG",
         "Adventure",
         "Singleplayer"
       ],
       "development": "Bethesda Game Studios",
-      "img": "skyrimespecialedition.jpg"
+      "img": "skyrimespecialedition.jpg",
+      "relaseDate":"28 Oct, 2016"
 },
 "Tom Clancy's Rainbow Six® Siege": {
       "id": 8,
@@ -122,12 +115,118 @@
       "price":19.99,
       "tags": [
         "FPS",  
-        "Hero Shooter",
+        "Hero_Shooter",
         "Multiplayer",
         "Tactical"
       ],
       "development": "Ubisoft Montreal",
-      "img": "rainbowsixeige.jpg"
+      "img": "rainbowsixeige.jpg",
+      "relaseDate":"1 Dec, 2015"
+},
+"Left for Dead 2": {
+      "id": 9,
+      "name": "Left for Dead 2",
+      "description": "Set in the zombie apocalypse, Left 4 Dead 2 (L4D2) is the highly anticipated sequel to the award-winning Left 4 Dead, the #1 co-op game of 2008. This co-operative action horror FPS takes you and your friends through the cities, swamps and cemeteries of the Deep South, from Savannah to New Orleans...",
+      "price":9.75,
+      "tags": [
+        "Zombies",  
+        "Co-op",
+        "Multiplayer",
+        "Shooter"
+      ],
+      "development": "Valve",
+      "img": "leftfordead2.jpg",
+      "relaseDate":"17 Nov, 2009"
+},
+"Half Life 2": {
+      "id": 10,
+      "name": "Half Life 2",
+      "description": "1998. HALF-LIFE sends a shock through the game industry with its combination of pounding action and continuous, immersive storytelling. Valve's debut title wins more than 50 game-of-the-year awards on its way to being named 'Best PC Game Ever' by PC Gamer, and launches a franchise with more than...",
+      "price":9.75,
+      "tags": [
+        "FPS",  
+        "Action",
+        "Sci-fi",
+        "Classic"
+      ],
+      "development": "Valve",
+      "img": "halflife2.jpg",
+      "relaseDate":"16 Nov, 2004"
+},
+"Counter-Strike: Global Offensive": {
+      "id": 11,
+      "name": "Counter-Strike: Global Offensive",
+      "description": "Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.).",
+      "price":"Free to play",
+      "tags": [
+        "FPS",  
+        "Shooter",
+        "Multiplayer",
+        "Competitive"
+      ],
+      "development": "Valve",
+      "img": "csgo.jpg",
+      "relaseDate":"21 Aug, 2012"
+},
+"Raft": {
+      "id": 12,
+      "name": "Raft",
+      "description": "Raft throws you and your friends into an epic oceanic adventure! Alone or together, players battle to survive a perilous voyage across a vast sea! Gather debris, scavenge reefs and build your own floating home, but be wary of the man-eating sharks!",
+      "price":19.99,
+      "tags": [
+        "Survival",  
+        "Open_World",
+        "Multiplayer",
+        "Adventure"
+      ],
+      "development": "Redbeet Interactive",
+      "img": "raft.jpg",
+      "relaseDate":"20 Jun, 2022"
+},
+"Grand Theft Auto V": {
+      "id": 13,
+      "name": "Grand Theft Auto V",
+      "description": "Grand Theft Auto V for PC offers players the option to explore the award-winning world of Los Santos and Blaine County in resolutions of up to 4k and beyond, as well as the chance to experience the game running at 60 frames per second.",
+      "price":25.55,
+      "tags": [
+        "Open_World",  
+        "Action",
+        "Multiplayer",
+        "Crime"
+      ],
+      "development": "Rockstar North",
+      "img": "grandtheftautov.jpg",
+      "relaseDate":"14 Apr, 2015"
+},
+"Stardew Valley": {
+      "id": 14,
+      "name": "Stardew Valley",
+      "description": "You've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life. Can you learn to live off the land and turn these overgrown fields into a thriving home?",
+      "price":13.99,
+      "tags": [
+        "Farming",  
+        "Pixel",
+        "RPG",
+        "Co-op"
+      ],
+      "development": "ConcernedApe",
+      "img": "stardewvalley.jpg",
+      "relaseDate":"26 Feb, 2016"
+},
+"ELDEN RING": {
+      "id": 15,
+      "name": "ELDEN RING",
+      "description": "THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.",
+      "price":59.99,
+      "tags": [
+        "RPG",  
+        "Open_World",
+        "Sci-fi",
+        "Classic"
+      ],
+      "development": "FromSoftware Inc.",
+      "img": "eldenring.jpg",
+      "relaseDate":"25 Feb, 2022"
 }
   }
 }
