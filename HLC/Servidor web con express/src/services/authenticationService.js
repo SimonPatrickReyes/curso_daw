@@ -32,13 +32,13 @@ const checkCookieSession = (id_session) => {
 
 const getUser = (id_session) => {
     const usuario = authenticationModelo.getUserBySessionId(id_session);
-    return {name: usuario.name, email: usuario.email,videogamesPurchased:usuario.videogamesPurchased}
+    return usuario
 }
 
 //UPDATE
 
 const updateUser = (user) => {
-    userModelo.updateUser(user)
+    authenticationModelo.updateUser(user)
 }
 
 //SIGNUP

@@ -7,6 +7,8 @@ router.route("/login")
 router.route("/signup")
     .post(authentication.signup)
 router.route("/logout")
-    .delete(authentication.logout) 
+    .delete(authentication.logout)
+router.route("/update")
+    .put(authentication.updateUser) 
 
 module.exports = router

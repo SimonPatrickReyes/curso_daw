@@ -36,11 +36,11 @@ const addSession = (id, sessionId) => {
 //UPDATE USER
 
 const updateUser = (newUser) => {
-  const userIndex = users.users.findIndex(user => user.id === newUser.id);
-  users["users"][userIndex] = newUser;
+  const userIndex = usuarios.users.findIndex(user => user.id === newUser.id);
+  usuarios["users"][userIndex] = newUser;
   fs.writeFile(
       "./src/database/users.json",
-      JSON.stringify(users, null, 2),
+      JSON.stringify(usuarios, null, 2),
       "utf8",
       (err)=>{
           throw new Error("ERROR AL ESCRIBIR")

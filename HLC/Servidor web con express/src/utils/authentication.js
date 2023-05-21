@@ -1,7 +1,7 @@
 const authenticationService = require("../services/authenticationService")
 
 const login = (req, res, next) => {
-//0. Obtenemos los diferentes datos de la petición
+  //0. Obtenemos los diferentes datos de la petición
   const { email, password } = req.body;
   const sessionId = req.cookies.sessionId;
   if (!email && !password && !sessionId) {
@@ -18,14 +18,14 @@ const login = (req, res, next) => {
     }
     const sessionId = authenticationService.generateSessionId(idUserLogueado)
     res.cookie("sessionId", sessionId, { httpOnly: false })
-    const userData =  authenticationService.getUser(sessionId)
-    res.status(200).send({message: "AUTORIZADO", user: userData}).end();
+    const userData = authenticationService.getUser(sessionId)
+    res.status(200).send({ message: "AUTORIZADO", user: userData }).end();
   }
   else if (sessionId) {
     if (authenticationService.checkCookieSession(sessionId)) {
       res.cookie("sessionId", sessionId, { httpOnly: false })
-      const userData =  authenticationService.getUser(sessionId)
-      res.status(200).send({message:"AUTORIZADO", user: userData}).end()
+      const userData = authenticationService.getUser(sessionId)
+      res.status(200).send({ message: "AUTORIZADO", user: userData }).end()
     }
   }
   res.status(500).send("NO AUTORIZADO").end()
@@ -59,13 +59,21 @@ const logout = (req, res, next) => {
 
 const getUser = (req, res, next) => {
   const sessionId = req.cookies.sessionId;
-  const userData =  authenticationService.getUser(sessionId)
+  const userData = authenticationService.getUser(sessionId)
   res.status(200).send(userData).end();
 }
+
+const updateUser = (req, res, next) => {
+  const { newUser } = req.body;
+  const sessionId = req.cookies.sessionId;
+  authenticationService.updateUser(newUser)
+  res.status(200).send("update user").end();
+};
 
 module.exports = {
   login,
   signup,
   logout,
-  getUser
+  getUser,
+  updateUser
 };

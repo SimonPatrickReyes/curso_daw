@@ -5,40 +5,18 @@
       "name": "UserPrueba",
       "email": "prueba@prueba.com",
       "password": "1234567890",
-      "videogamesPurchased": []
+      "videogamesPurchased": [
+        1,
+        2,
+        3,
+        4
+      ]
     },
     {
       "id": "61dbae02-c147-4e28-863c-db7bd402b2d7",
       "name": "Christian",
       "email": "christianReshulon6969@yahoo.es",
       "password": "1234567890",
-      "videogamesPurchased": []
-    },
-    {
-      "id": "0c5f8717-d3e1-46ee-9142-8e4176865640",
-      "name": "a",
-      "email": "a@a.com",
-      "password": "a",
-      "videogamesPurchased": []
-    },
-    {
-      "id": "0c35efac-c011-4e03-b2a1-eb9da8e3b74d",
-      "name": "c",
-      "email": "c@c.com",
-      "password": "c",
-      "videogamesPurchased": []
-    },
-    {
-      "id": "55576358-1eb0-4ea7-9f05-679dd438c3ab",
-      "name": "b",
-      "email": "b@b.com",
-      "password": "b",
-      "videogamesPurchased": []
-    },
-    {
-      "id": "8167e471-0270-46fc-8c24-33ae852ff387",
-      "email": "carolinga@carolinga.com",
-      "password": "carolinga",
       "videogamesPurchased": []
     }
   ]
