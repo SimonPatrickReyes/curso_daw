@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());  
 var corsOptions = {
-  origin: "https://gorgeous-gaufre-e62281.netlify.app",
+  origin: ["http://localhost:5173","https://gorgeous-gaufre-e62281.netlify.app"],
   credentials: true,
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
