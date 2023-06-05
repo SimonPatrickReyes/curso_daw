@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { UserContext } from '../contexts/UserContext';
-import { Link } from "react-router-dom";
 import { useRef } from 'react';
 
 
@@ -102,7 +100,7 @@ const Login = () => {
     }
     //REGISTRAR EL USUARIO
     Swal.fire({
-      text:  userRegistered.name+'Usuario registrado',
+      text: userRegistered.name + 'Usuario registrado',
 
     })
     //Usuarios registrados
@@ -129,11 +127,11 @@ const Login = () => {
       window.localStorage.setItem("pass", pass);
       window.localStorage.setItem("fecha-nac", userRegistered.fecha);
       Swal.fire({
-        text: 'Bienvenido '+ userRegistered.name
+        text: 'Bienvenido ' + userRegistered.name
       })
       setDatos(datosInicial)
       setError(null)
-      navigate('/')
+      navigate('/profile')
     }
     else {
       setError("La contraseña o el email no están registrados.")
