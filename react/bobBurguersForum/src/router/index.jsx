@@ -7,6 +7,7 @@ import Character from "../pages/Character";
 import Stores from "../pages/Stores";
 import Store from "../pages/Store";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 import Profile from "../pages/Profile";
 import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
@@ -61,7 +62,11 @@ export const router = createBrowserRouter([
         element: <Login />,
        
     },
-
+    {
+        path: "/register",
+        element: <Register />,
+       
+    },
     {
         path: "/profile",
         element: <Profile />,

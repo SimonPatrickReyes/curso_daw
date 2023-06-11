@@ -1138,6 +1138,10 @@ main a {
 
 
 .formLogin{
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  max-width: 50%;
   margin-top: 50px;
   background: #eee;
   border-radius: 10px;
