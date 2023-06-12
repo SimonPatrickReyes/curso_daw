@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import favorite from "../assets/images/favorite.png";
+import favoriteFull from "../assets/images/favorite_full.png";
+
 
 
 const Character = () => {
@@ -13,8 +16,8 @@ const Character = () => {
         fetch(`https://bobsburgers-api.herokuapp.com/characters/${id}`, { headers: headers })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
-                setPersonaje(data)
+                const modifiedData = replaceEmptyDetails(data);
+                setPersonaje(modifiedData);
             }
             )
     },
@@ -22,20 +25,51 @@ const Character = () => {
 
     const [favoriteMessage, setFavoriteMessage] = useState(false)
 
+    const replaceEmptyDetails = (character) => {
+        const modifiedCharacter = { ...character };
+
+        if (!modifiedCharacter.voicedBy) {
+            modifiedCharacter.voicedBy = 'Unknown';
+        }
+        if (!modifiedCharacter.age) {
+            modifiedCharacter.age = 'Unknown';
+        }
+        if (!modifiedCharacter.gender) {
+            modifiedCharacter.gender = 'Unknown';
+        }
+        if (!modifiedCharacter.hairColor) {
+            modifiedCharacter.hairColor = 'Unknown';
+        }
+        if (!modifiedCharacter.occupation) {
+            modifiedCharacter.occupation = 'Unknown';
+        }
+        if (!modifiedCharacter.firstEpisode) {
+            modifiedCharacter.firstEpisode = 'Unknown';
+        }
+
+        return modifiedCharacter;
+    };
+
     function closeMessage() {
         setFavoriteMessage(false)
-      }
+    }
 
+    const handleFavoriteClick = () => {
+        // Save the character ID in localStorage
+        localStorage.setItem('favoriteCharacterId', id);
+        
+
+    };
 
     useEffect(() => {
         setFavoriteMessage(false);
         setTimeout(() => {
-            setFavoriteMessage(true);setTimeout(() => {
-         setFavoriteMessage(false);
-        },  6000)
+            setFavoriteMessage(true); setTimeout(() => {
+                setFavoriteMessage(false);
+            }, 6000)
         }, 3000);
 
-        
+
 
 
     }, [])
@@ -46,13 +80,15 @@ const Character = () => {
     return (
         <main className='character'>
             <div className='character__divSpan'>
-
                 {favoriteMessage && <span className='character__span'>
                     <button onClick={() => setFavoriteMessage(false)} className='character__closeSpan'>✖</button>
                     ¡No olvides guardar a tus personajes favoritos haciendo click en el corazon!</span>}
             </div>
             <aside className='character__aside'>
                 <h3 className="character__h3">{personaje.name}</h3>
+                <button onClick={handleFavoriteClick} className='character__favorite'>
+                    <img src={favorite} alt="Favorite" id='favorite' />
+                </button>
                 <img src={`${personaje.image}`} alt="{personaje.name}" className='character__img' />
                 <div className="character__details">
                     <span className="details__tittle">Voiced by</span> <span>{personaje.voicedBy}</span>
