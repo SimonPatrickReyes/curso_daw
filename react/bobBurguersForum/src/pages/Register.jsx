@@ -23,35 +23,35 @@ const Register = () => {
         <>
             <Formik
                 initialValues={{
-                    nombre: '',
+                    name: '',
                     email: '',
                     password: '',
                     genero:'',
-                    fechaNacimiento:'',
+                    birthDate:'',
                 }}
 
                 validate={(valores) => {
                     let errors = {};
-                    //validar nombre de usuario
-                    if (!valores.nombre) {
-                        errors.nombre = 'Escribe un nombre'
-                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)) {
-                        errors.nombre = "El nombre solo puede contener letras y espacios"
+                    //validar name de usuario
+                    if (!valores.name) {
+                        errors.name = 'Write a username'
+                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)) {
+                        errors.name = "Username can only contain letters and spaces"
                     }
                     //validar email
                     if (!valores.email) {
-                        errors.email = 'Escribe un email'
+                        errors.email = 'Write an email'
                     } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
-                        errors.email = "El email solo puede contener letras, números, puntos, guión y guión bajo"
+                        errors.email = "The email can only contain letters, numbers, periods, hyphens and underscores"
                     }  
                     if (emailEnUso(valores.email)) {
-                        errors.email = "El email está en uso."
+                        errors.email = "Email already in use"
                     }
                     return errors
                 }}
 
                 onSubmit={(valores, { resetForm }) => {
-                    console.log('Formulario enviado');
+                    console.log('Form send');
                     changeFormSend(true);
                     setUsers(users.push(valores));
                     window.localStorage.setItem("users", JSON.stringify(users));
@@ -63,14 +63,14 @@ const Register = () => {
                 {({ errors }) => (
                     <Form className="formLogin">
                         <div>
-                            <label htmlFor="nombre">Nombre</label>
+                            <label htmlFor="name">Username</label>
                             <Field
                                 type="text"
-                                id="nombre"
-                                name="nombre"
+                                id="name"
+                                name="name"
                                 className="formLogin__field" />
-                            <ErrorMessage name='nombre' component={() => (
-                                <div className='error'>{errors.nombre}</div>
+                            <ErrorMessage name='name' component={() => (
+                                <div className='error'>{errors.name}</div>
                             )}
                             />
                         </div>
@@ -95,26 +95,26 @@ const Register = () => {
                                 className="formLogin__field" />
                         </div>
                         <div>
-                            <label htmlFor="genero">Género</label>
+                            <label htmlFor="genero">Gender</label>
                             <label>
-                                <Field type="radio" name="genero" value="H" id="H"/>Hombre
+                                <Field type="radio" name="genero" value="M" id="M"/>Male
                             </label>
                             <label>
-                                <Field type="radio" name="genero" value="M" id="M"/>Mujer
+                                <Field type="radio" name="genero" value="F" id="F"/>Female
                             </label>
                             <label>
-                                <Field type="radio" name="genero" value="N/S" id="N/S"/>Prefiero no contestar
+                                <Field type="radio" name="genero" value="N/S" id="N/S"/>I prefer not to answer
                             </label>
                         </div>
                         <div>
                             <label>
-                                <label htmlFor="fechaNacimiento">Fecha de nacimiento</label>
-                                <Field type="date" name="fechaNacimiento" id="fechaNacimiento" />
+                                <label htmlFor="birthDate">Birth Date</label>
+                                <Field type="date" name="birthDate" id="birthDate" />
                             </label>
                         </div>
-                        <button type="submit">Registrarse</button>
-                        {formSend && <span className='login__span'>Registrado con éxito</span>}
-                        <a href="http://localhost:5173/login">¿Ya tienes cuenta?</a>
+                        <button type="submit">Register</button>
+                        {formSend && <span className='login__span'>Successfully registered</span>}
+                        <a href="http://localhost:5173/login">Have you an account already?</a>
                     </Form>
                 )}
             </Formik>
