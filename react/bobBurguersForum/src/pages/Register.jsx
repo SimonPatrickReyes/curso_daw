@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 const Register = () => {
     const [formSend, changeFormSend] = useState(false)
     const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || [])
+    
     const emailEnUso =  (email) => {
         console.log(email)
         var usado = users.filter(user => user.email == email);
